@@ -18,4 +18,4 @@ jatek=szam=0
 nemtalaltdb=0
 
 #kitalálandó szám beállítása
-kszam=random
+kszam=random.randint(1,100)
