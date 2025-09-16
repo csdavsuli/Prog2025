@@ -1,0 +1,21 @@
+import random
+
+
+szamok=[]
+
+#100 elemű lista feltöltése 1-999 közötti véletlen számok
+
+#szám generálás
+
+for i in range(100):
+    szam=random.randint(0,99)
+    szamok.append(szam)
+
+print(szamok)
+
+#egyszámjáték
+jatek=szam=0
+nemtalaltdb=0
+
+#kitalálandó szám beállítása
+kszam=random
