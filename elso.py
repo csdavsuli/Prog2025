@@ -16,18 +16,36 @@ print(szamok)
 #kitalálandó szám beállítása
 kszam=szamok[random.randint(0,len(szamok))]
 
-tipp=int(input("Kérek egy számot 1 és 100 között: "))
-if (tipp==kszam):
-        print("Gratulálok, eltaláltad a számot")
-elif (tipp<kszam):
+tipp=(input("Kérek egy számot 1 és 100 között: "))
+while (not tipp.isdecimal()):
+    print("Nem számot adtál meg,egész számot adj meg")
+    tipp=(input("Kérek egy számot 1 és 100 között: "))
+
+    
+tipp=int(tipp)
+    
+if (tipp<kszam):
     print("A keresett szám nagyobb")
-else:
+elif (tipp>kszam):
+    print("A keresett szám kisebb")
+
+
+
+
+if (tipp<kszam):
+    print("A keresett szám nagyobb")
+elif(tipp>kszam):
     print("A keresett szám kisebb")
 while(tipp!=kszam):
-    tipp=int(input("Kérek egy számot 1 és 100 között: "))
-    if (tipp==kszam):
-        print("Gratulálok, eltaláltad a számot")
-    elif (tipp<kszam):
+    tipp=(input("Kérek egy számot 1 és 100 között: "))
+    while (not tipp.isdecimal()):
+        print("Nem számot adtál meg,egész számot adj meg")
+        tipp=(input("Kérek egy számot 1 és 100 között: "))
+
+    tipp=int(tipp)
+    
+    if (tipp<kszam):
         print("A keresett szám nagyobb")
-    else:
+    elif (tipp>kszam):
         print("A keresett szám kisebb")
+print("Eltaláltad a számot")
