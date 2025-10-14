@@ -50,5 +50,15 @@ for i in range(1,len(verseny_adatok)):
         db+=1
 
 print(f"1. feladat: {db} versenyző nem szerzett pontot.")
-#2    
-
+#2 Van-e Fernando nevű versenyző?
+i=0
+while i<len(verseny_adatok) and "Fernando" not in verseny_adatok[i] :
+    i+=1
+if i<len(verseny_adatok):
+    print("2. feladat: Van Fernando nevű versenyző.")
+else:
+    print("2. feladat: Nincs Fernando nevű versenyző.")
+#Eldöntés 2
+#3. feladat: Mndenkit szerzett már 90 pontot?
+i=0
+while i<len(verseny_adatok) and verseny_adatok[i].split )
