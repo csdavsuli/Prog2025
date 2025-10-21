@@ -60,5 +60,25 @@ else:
     print("2. feladat: Nincs Fernando nevű versenyző.")
 #Eldöntés 2
 #3. feladat: Mndenkit szerzett már 90 pontot?
+i=1
+while i<len(verseny_adatok) and int(verseny_adatok[i].split(",")[1])>=90:
+    i+=1
+if i==len(verseny_adatok):
+    print("3. feladat: Mindenki szerzett már 90 pontot.")
+else:
+    print("3. feladat: Nem mindenki szerzett még 90 pontot.")
+    
+#4. feladat: Ki istálló pilótája Yuki Tsunoda?
 i=0
-while i<len(verseny_adatok) and verseny_adatok[i].split )
+while verseny_adatok[i].split(",")!="Yuki Tsunoda":
+    i+=1
+print(f"4. feladat: Yuki Tsunoda istállója: {verseny_adatok[i].split(',')[2]}")
+
+#5.feladat Melyik csapatban volt Pierre Gasly?
+i=1
+while i<len(verseny_adatok) and "Pierre Gasly" not in verseny_adatok[i]:
+    i+=1
+if i<len(verseny_adatok):
+    print(f"5. feladat: Pierre Gasly csapata: {verseny_adatok[i].split(',')[2]}")
+else:
+    print("5. feladat: Nincs Pierre Gasly nevű versenyző.")
