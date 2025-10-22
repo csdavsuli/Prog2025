@@ -82,3 +82,17 @@ if i<len(verseny_adatok):
     print(f"5. feladat: Pierre Gasly csapata: {verseny_adatok[i].split(',')[2]}")
 else:
     print("5. feladat: Nincs Pierre Gasly nevű versenyző.")
+
+#6.feladat: Számoljuk a pontok átlagát!
+S=0
+for i in range(1,len(verseny_adatok)):
+    S+=int(verseny_adatok[i].split(",")[1])
+print("6. feladat: A pontok átlaga:", S/len(verseny_adatok)-1)
+
+#7.feladat
+maxi=1
+max=verseny_adatok[1].split(",")[1]
+for i in range(3,len(verseny_adatok)):
+    if verseny_adatok[i].split(",")[1]>max:
+        max=int(verseny_adatok[i].split(",")[1])
+        maxi=i
