@@ -70,7 +70,7 @@ else:
     
 #4. feladat: Ki istálló pilótája Yuki Tsunoda?
 i=0
-while verseny_adatok[i].split(",")!="Yuki Tsunoda":
+while verseny_adatok[i].split(",")[0]!="Yuki Tsunoda":
     i+=1
 print(f"4. feladat: Yuki Tsunoda istállója: {verseny_adatok[i].split(',')[2]}")
 
@@ -96,3 +96,15 @@ for i in range(3,len(verseny_adatok)):
     if verseny_adatok[i].split(",")[1]>max:
         max=int(verseny_adatok[i].split(",")[1])
         maxi=i
+
+
+#9.feladat: Kiválogatás kigyyűjtéssel Kik vannak a mclaren csapatában?
+db1=1
+listamc=[]
+for i in range(1,len(verseny_adatok)):
+    if verseny_adatok[i].split(",")[2].strip()=="McLaren":
+        db1+=1
+        listamc.append(verseny_adatok[i].split(",")[0])
+        
+print   (f"9. feladat: A McLaren csapatában {db1} versenyző van.")
+
