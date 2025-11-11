@@ -108,3 +108,16 @@ for i in range(1,len(verseny_adatok)):
         
 print   (f"9. feladat: A McLaren csapatában {db1} versenyző van.")
 
+#szétválogatás
+dby=0
+dbx=0
+y=[]
+x=[]
+for i in range(1,len(verseny_adatok)):
+    if int(verseny_adatok[i].split(",")[1].strip()!=0):
+        dby+=1
+        y.append(verseny_adatok[i].split(",")[0])
+    else:
+        dbx+=1
+        x.append(verseny_adatok[i].split(",")[0])
+print(f"10. feladat: {dby} versenyző szerzett pontot ők: {y}, {dbx} versenyző nem szerzett pontot ők: {y}.")
