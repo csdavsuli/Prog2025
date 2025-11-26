@@ -121,3 +121,17 @@ for i in range(1,len(verseny_adatok)):
         dbx+=1
         x.append(verseny_adatok[i].split(",")[0])
 print(f"10. feladat: {dby} versenyző szerzett pontot ők: {y}, {dbx} versenyző nem szerzett pontot ők: {y}.")
+
+#rendezés minimum kiválasztásos rendezés pontok szerint növekvő sorrendbe
+for i in range(1,len(verseny_adatok)-1):
+    mini=i
+    min=int(verseny_adatok[i].split(",")[1])
+    for j in range(i+1,len(verseny_adatok)):
+        if int(verseny_adatok[j].split(",")[1])<int(verseny_adatok[mini].split(",")[1]):
+            mini=j
+            min=int(verseny_adatok[j].split(",")[1])
+    verseny_adatok[i], verseny_adatok[mini]=verseny_adatok[mini], verseny_adatok[i]
+
+print("11. feladat: Rendezett lista pontok szerint növekvő sorrendben:")
+for i in verseny_adatok:
+    print(i.strip())
