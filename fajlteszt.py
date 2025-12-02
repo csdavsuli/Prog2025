@@ -1,15 +1,16 @@
 
 verseny_adatok = []
 
-try:
-    with open("F1-2024dec.csv", encoding="utf-8") as fajl:
-        verseny_adatok = fajl.readlines()
 
-except Exception as ex:
-    print(f"Halihóóóóó!: Hiba oka: {ex}")
-except FileNotFoundError:
-    print("Hiba a fájl megnyitása közben!")
+def adat_beolvasas():
+    try:
+        with open("F1-2024dec.csv", encoding="utf-8") as fajl:
+            verseny_adatok = fajl.readlines()
 
+    except Exception as ex: 
+        print(f"Halihóóóóó!: Hiba oka: {ex}")
+    except FileNotFoundError:
+        print("Hiba a fájl megnyitása közben!")
 
     """
     1. [X] Megszámolás
