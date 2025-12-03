@@ -1,10 +1,12 @@
 
 verseny_adatok = []
 
+inputfajl = "F1-2024dec.csv"
 
-def adat_beolvasas():
+def adat_beolvasas(fajlnev,):
     try:
-        with open("F1-2024dec.csv", encoding="utf-8") as fajl:
+        with open(fajlnev, encoding="utf-8") as fajl:
+            global verseny_adatok
             verseny_adatok = fajl.readlines()
 
     except Exception as ex: 
@@ -12,6 +14,25 @@ def adat_beolvasas():
     except FileNotFoundError:
         print("Hiba a fájl megnyitása közben!")
 
+def pontatlanok():
+    # 1. Hány versenyző nem szerzett még pontot?
+    db = 0
+
+    for i in range(1, len(verseny_adatok)):
+        if(int(verseny_adatok[i].split(',')[1]) == 0):
+            db = db + 1
+
+    print(f"{db} versenyző nem szerzett még pontot.\n")
+
+def versenyzo_kereso(nev):
+    # 2.A Van-e Fernando nevű versenyző?
+    i = 0
+    while (i<len(verseny_adatok)and "Fernando" not in verseny_adatok[i]):
+        i=i+1
+    if (i<len(verseny_adatok)):
+        return True
+    else:
+        return False  
     """
     1. [X] Megszámolás
     2. [X] Eldöntés 1
@@ -33,7 +54,7 @@ def adat_beolvasas():
         [] Minimum kiválasztásos
     """
 
-
+"""
 # ---------------------------------------------------------
 
 # 1. Hány versenyző nem szerzett még pontot?
@@ -180,11 +201,14 @@ for i in range(1, len(verseny_adatok)-1):
 
 for i in verseny_adatok:
     print(i)
-
-
-
-
-
-
+"""
+# PROGRAM
+adat_beolvasas(inputfajl)
+pontatlanok()
+vane=versenyzo_kereso("Fernando")
+if(vane):
+    print("Van ilyen versenyző\n") 
+else:
+    print("Nincs ilyen versenyző\n")
 
 print("ITT A PROGRAM VÉGE!")
