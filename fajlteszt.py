@@ -33,7 +33,40 @@ def versenyzo_kereso(nev):
         return True
     else:
         return False  
-    """
+#eljaras
+def csapat(nev):
+#4. melyik csapatban volt Pierre Gasly?
+    i=1
+    while i<len(verseny_adatok) and nev not in verseny_adatok[i]:
+        i=i+1
+    if i<len(verseny_adatok):
+        print(nev, verseny_adatok[i].split(",")[2].strip(), "csapatban van!:)")
+    else:
+        print("Nincs ilyen versenyző ezért egyik csapatban sincs bennt!:(")
+
+#függvény
+def csapat_tagok(csapat_nev):
+    #8. KIVÁLOGATÁS (másik listába)
+    #kik vannak a Mclaren istálloban
+    db1=0
+    masik_lista=[]
+    for i in range(2,len(verseny_adatok)):
+        if verseny_adatok[i].split(",")[2].strip()==csapat_nev:
+            db1=db1+1
+            masik_lista.append(verseny_adatok[i].split(",")[0])
+    return masik_lista
+    
+def kettob(pont):
+
+    i=1
+    while i<len(verseny_adatok) and int(verseny_adatok[i].split(",")[1])>=pont:
+        i=i+1
+    if i==len(verseny_adatok):
+        print("van")
+    else:
+        print("nem")
+        
+"""
     1. [X] Megszámolás
     2. [X] Eldöntés 1
        [X] Eldöntés 2
@@ -211,4 +244,20 @@ if(vane):
 else:
     print("Nincs ilyen versenyző\n")
 
+csapat("Pierre Gasly")
+csapat_nev="McLaren"
+tag_lista=csapat_tagok(csapat_nev)
+print(f"Ezek a személyek vannak a {csapat_nev} istálloban: {tag_lista}")
+i=1
+for nev in tag_lista:
+    print(f"#{i}.{nev:^30}#")
+    i+=1
 print("ITT A PROGRAM VÉGE!")
+
+#2.B F, 3.F, 5F eljárás
+#6F 2* 9F
+
+#2.B
+kettob(100)
+
+#3.F
