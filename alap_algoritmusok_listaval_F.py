@@ -43,22 +43,25 @@ tanulo_adatok = []
     A metódus neve: fajl_beolvasas
 """
 inputfajl = "12B_dhcp_ponttabla.txt"  
-def fajl_beolvasas(fajlnev):
+def fajl_beolvasas():
     try:
-        with open(fajlnev, "r", encoding="utf-8") as fajl:
+        with open("12B_dhcp_ponttabla.txt", "r", encoding="utf-8") as fajl:
             global ossz_pontszam
-            
-            
+             
             #első sor feldolgozása
-            ossz_pontszam = int(fajl.readline().strip().split(";")[1])
+            ossz_pontszam = int(fajl.readline().strip().split(" ")[2])
             #adatok feldolgozása
+            fajl.readline()  #fejléc sor átugrása
             for sor in fajl:
                 sornyi_adatok = sor.strip().split(";")
-                adatok.append(sornyi_adatok)
+                sornyi_adatok[1]=int(sornyi_adatok[1])
+                sornyi_adatok[2]=int(sornyi_adatok[2])
+                sornyi_adatok[3]=int(sornyi_adatok[3])
+
+                tanulo_adatok.append(sornyi_adatok)
             
     except IOError as hiba:
         print(f"Hiba a fájl megnyitásakor: {hiba}")
-
 
 
 """
@@ -101,10 +104,10 @@ print(f"\n{'*' * 40}\n{cim.upper():^40}\n{'*' * 40}\n\n")
 
 
 # fajl_beolvasas
-ossz_pontszam = 0
-adatok = []
-fajl_beolvasas(inputfajl)
-print(f"A fájl beolvasása megtörtént. {adatok}")
+
+fajl_beolvasas()
+
+print(f"A fájl beolvasása megtörtént.{tanulo_adatok} ")
 # csoport_letszam
 
 # legszorgalmasabb
